@@ -1,13 +1,14 @@
-# C# 14 Extension Blocks Sample
+# C# 15 Extension Members Sample
 
-This sample demonstrates **C# 14 Extension Blocks** using the actual C# 14 `extension` keyword syntax that compiles and runs in .NET 10. This is a powerful new language feature that provides a clean, organized way to extend existing types with properties, methods, and operators without modifying the original type definition.
+This sample demonstrates **C# extension members** using the modern `extension` keyword syntax that compiles and runs in .NET 11. It shows how to extend existing types with properties, methods, indexers, and operators without modifying the original type definition.
 
-> **Note**: This sample uses the actual C# 14 extension syntax as specified in the [Microsoft documentation](https://raw.githubusercontent.com/dotnet/csharplang/main/proposals/csharp-14.0/extensions.md). It requires .NET 10 SDK (version 10.0.101 or later) to compile and run. The sample demonstrates true extension properties that are accessed as `person.FullName` (not `person.FullName()`) and provides the performance and IntelliSense benefits of the new C# 14 extension members feature.
+> **Note**: This sample uses extension member syntax as specified in the [Microsoft proposal](https://raw.githubusercontent.com/dotnet/csharplang/main/proposals/csharp-14.0/extensions.md). It demonstrates true extension properties (for example `person.FullName`) and C# 15 extension indexers (for example `person["fullName"]`).
 
 ## 🚀 Features
 
 - **Extension Properties**: Add computed properties to existing types
 - **Extension Methods**: Enhance types with additional functionality
+- **Extension Indexers**: Add key-based indexed access to existing types
 - **Extension Operators**: Organize mathematical operations in clean blocks
 - **Type Safety**: Full IntelliSense support and compile-time checking
 - **Performance**: Better performance than traditional extension methods
@@ -15,9 +16,9 @@ This sample demonstrates **C# 14 Extension Blocks** using the actual C# 14 `exte
 
 ## 📋 Prerequisites
 
-- **.NET 10 SDK** (version 10.0.101 or later)
+- **.NET 11 SDK** (preview)
 - **Visual Studio 2026** or **VS Code** with C# extension
-- **C# 14 Language Support**
+- **C# 15 Language Support**
 
 ## 🏗️ Sample Structure
 
@@ -104,6 +105,30 @@ Console.WriteLine(text.ToTitleCase()); // "Hello World"
 Console.WriteLine(text.WordCount());   // 2
 ```
 
+### Extension Indexers
+
+Extension indexers add indexed access patterns to existing types:
+
+```csharp
+public static class PersonExtensions
+{
+    extension (Person person)
+    {
+        public string this[string fieldName] => fieldName.ToLowerInvariant() switch
+        {
+            "fullname" => person.FullName,
+            "age" => person.Age.ToString(),
+            "bmi" => person.BMI.ToString("F1"),
+            _ => throw new ArgumentException($"Unsupported person field '{fieldName}'.", nameof(fieldName))
+        };
+    }
+}
+
+// Usage
+Console.WriteLine(person["fullName"]); // "John Doe"
+Console.WriteLine(person["bmi"]);      // "22.9"
+```
+
 ### User-Defined Operators
 
 Extension blocks can organize mathematical operations for custom types:
@@ -142,6 +167,7 @@ var magnitude = c1.Magnitude;      // Uses extension property (not c1.Magnitude(
 - **BMI**: Calculate Body Mass Index
 - **BMICategory**: Categorize BMI into health ranges
 - **IsAdult**: Check if person is 18 or older
+- **Indexer Access**: Read values like `person["fullName"]` and `person["bmiCategory"]`
 
 ### 2. Geometric Calculations
 - **Area**: Calculate rectangle area

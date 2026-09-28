@@ -79,4 +79,27 @@ public static partial class ComplexExtensions
         public static Complex FromPolar(double magnitude, double phase)
             => new(magnitude * Math.Cos(phase), magnitude * Math.Sin(phase));
     }
+
+    extension (ref Complex complex)
+    {
+        /// <summary>
+        /// Compound assignment operator for complex addition.
+        /// Performs in-place component updates to minimize temporary values.
+        /// </summary>
+        public void operator +=(Complex right)
+        {
+            complex.Real += right.Real;
+            complex.Imaginary += right.Imaginary;
+        }
+
+        /// <summary>
+        /// Compound assignment operator for scalar multiplication.
+        /// Performs in-place scaling to avoid creating intermediate results.
+        /// </summary>
+        public void operator *=(double scalar)
+        {
+            complex.Real *= scalar;
+            complex.Imaginary *= scalar;
+        }
+    }
 }

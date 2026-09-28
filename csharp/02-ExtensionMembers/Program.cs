@@ -2,24 +2,22 @@ using ExtensionBlocks.Models;
 
 
 /// <summary>
-/// Demonstrates C# 14 Extension Members features including extension properties,
-/// extension methods, and user-defined operators in extension members.
+/// Demonstrates C# 15 Extension Members features including extension properties,
+/// extension methods, extension indexers, and user-defined operators in extension members.
 /// 
 /// Extension blocks provide a clean, organized way to extend existing types
-/// with properties, methods, and operators without modifying the original type.
-/// 
-/// NOTE: Extension blocks are a C# 14/.NET 10 feature.
-/// This sample shows the concept - extension members will work in .NET 10 with C# 14.
+/// with properties, methods, indexers, and operators without modifying the original type.
 /// </summary>
 /// 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-Console.WriteLine("🚀 C# 14 Extension Members Demo - .NET 10");
+Console.WriteLine("🚀 C# 15 Extension Members Demo - .NET 11");
 Console.WriteLine("=========================================");
 Console.WriteLine();
 Console.WriteLine("Extension members provide a clean way to extend existing types with:");
 Console.WriteLine("• Extension Properties - Add computed properties to any type");
 Console.WriteLine("• Extension Methods - Add functionality without inheritance");
+Console.WriteLine("• Extension Indexers - Add key-based member access");
 Console.WriteLine("• User-Defined Operators - Add mathematical operations in organized blocks");
 Console.WriteLine();
 
@@ -35,7 +33,7 @@ Console.WriteLine();
 await DemonstrateUserDefinedOperators();
 Console.WriteLine();
 
-Console.WriteLine("✅ C# 14 Extension Members demonstration completed!");
+Console.WriteLine("✅ C# 15 Extension Members demonstration completed!");
 Console.WriteLine();
 Console.WriteLine("🔍 Key Benefits:");
 Console.WriteLine("• Clean organization of related extensions");
@@ -67,6 +65,8 @@ static async Task DemonstrateExtensionProperties()
     Console.WriteLine($"   BMI: {person.BMI:F1} ({person.BMICategory})");
     Console.WriteLine($"   Is Adult: {person.IsAdult}");
     Console.WriteLine($"   Vital Stats: {person.VitalStats}");
+    Console.WriteLine($"   Indexer[\"fullName\"]: {person["fullName"]}");
+    Console.WriteLine($"   Indexer[\"bmiCategory\"]: {person["bmiCategory"]}");
     Console.WriteLine();
 
     // Rectangle extension properties
@@ -159,13 +159,13 @@ static async Task DemonstrateUserDefinedOperators()
     Console.WriteLine($"   c1 == c2 = {c1 == c2}");
     Console.WriteLine();
 
-    // Compound assignment demonstration (simulated since C# 14 isn't available)
+    // Compound assignment demonstration
     var c3 = new Complex(2, 3);
-    Console.WriteLine("   Compound Assignment Operators (simulated):");
+    Console.WriteLine("   Compound Assignment Operators:");
     Console.WriteLine($"   c3 = {c3}");
-    c3 = c3 + c1; // Simulates what would be c3 += c1 in C# 14
+    c3 += c1;
     Console.WriteLine($"   After c3 += c1: {c3}");
-    c3 = c3 * 2.0; // Simulates what would be c3 *= 2.0 in C# 14
+    c3 *= 2.0;
     Console.WriteLine($"   After c3 *= 2.0: {c3}");
     Console.WriteLine();
 

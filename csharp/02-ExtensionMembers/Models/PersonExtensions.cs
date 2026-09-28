@@ -64,6 +64,24 @@ public static class PersonExtensions
         public bool IsAdult => person.Age >= 18;
 
         /// <summary>
+        /// Extension indexer that returns person values by key.
+        /// Demonstrates C# 15 extension indexers in extension blocks.
+        /// </summary>
+        /// <param name="fieldName">The field key to read.</param>
+        /// <exception cref="ArgumentException">Thrown when the field name is not supported.</exception>
+        public string this[string fieldName] => fieldName.ToLowerInvariant() switch
+        {
+            "firstname" => person.FirstName,
+            "lastname" => person.LastName,
+            "fullname" => person.FullName,
+            "age" => person.Age.ToString(),
+            "bmi" => person.BMI.ToString("F1"),
+            "bmicategory" => person.BMICategory,
+            "isadult" => person.IsAdult.ToString(),
+            _ => throw new ArgumentException($"Unsupported person field '{fieldName}'.", nameof(fieldName))
+        };
+
+        /// <summary>
         /// Extension property that formats the person's vital statistics.
         /// Shows how extension properties can combine multiple other extension properties.
         /// Accessed as a true property: person.VitalStats (not person.VitalStats())
