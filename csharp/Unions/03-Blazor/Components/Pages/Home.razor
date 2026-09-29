@@ -1,0 +1,65 @@
+@page "/"
+@rendermode InteractiveServer
+@using Shipping.Domain
+
+<PageTitle>Shipment Tracker</PageTitle>
+
+<h1>Shipment Tracker</h1>
+<p>
+    A live demo of the C# 15 <code>union</code> type <code>ShipmentStatus</code> (five cases:
+    <code>Placed</code>, <code>Processing</code>, <code>Shipped</code>, <code>Delivered</code>,
+    <code>Cancelled</code>) driving Blazor UI through exhaustive pattern matching.
+</p>
+
+<div class="card @StatusCssClass(_current)" style="max-width: 32rem;">
+    <div class="card-body">
+        <h5 class="card-title">@ShipmentStatusReporter.Describe(_current)</h5>
+
+        @* Recursive patterns unwrap the union's contents case-by-case, right in the markup. *@
+        @if (_current is Processing(var percentComplete))
+        {
+            <div class="progress" role="progressbar" aria-valuenow="@percentComplete" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width:@(percentComplete)%">@percentComplete%</div>
+            </div>
+        }
+        else if (_current is Shipped(var carrier, var trackingNumber, _))
+        {
+            <p class="card-text mb-0"><strong>@carrier</strong> &middot; tracking #@trackingNumber</p>
+        }
+    </div>
+</div>
+
+<button class="btn btn-primary mt-3" @onclick="Advance" disabled="@ShipmentStatusReporter.IsFinal(_current)">
+    Advance
+</button>
+<button class="btn btn-outline-secondary mt-3" @onclick="Reset">
+    Reset
+</button>
+
+@code {
+    private int _index;
+    private ShipmentStatus _current = SampleShipments.Timeline[0];
+
+    private void Advance()
+    {
+        _index = Math.Min(_index + 1, SampleShipments.Timeline.Count - 1);
+        _current = SampleShipments.Timeline[_index];
+    }
+
+    private void Reset()
+    {
+        _index = 0;
+        _current = SampleShipments.Timeline[_index];
+    }
+
+    // Each case maps to a Bootstrap contextual border class. This switch expression is
+    // exhaustive: removing a case (e.g. Cancelled) is a compile error, not a runtime surprise.
+    private static string StatusCssClass(ShipmentStatus status) => status switch
+    {
+        Placed => "border-secondary",
+        Processing => "border-info",
+        Shipped => "border-primary",
+        Delivered => "border-success",
+        Cancelled => "border-danger",
+    };
+}

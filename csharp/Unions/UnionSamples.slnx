@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="01-JsonSerialization/01-JsonSerialization.csproj" />
+  <Project Path="02-MinimalApiOpenApi/02-MinimalApiOpenApi.csproj" />
+  <Project Path="03-Blazor/03-Blazor.csproj" />
+  <Project Path="04-SignalR.Client/04-SignalR.Client.csproj" />
+  <Project Path="04-SignalR/04-SignalR.csproj" />
+  <Project Path="Shipping.Domain/Shipping.Domain.csproj" />
+</Solution>

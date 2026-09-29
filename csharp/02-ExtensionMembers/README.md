@@ -40,7 +40,7 @@ ExtensionMethods/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/CNinnovation/Dotnet10Samples.git
+   git clone https://github.com/cnilearn/BastaMainz2026.git
    cd Dotnet10Samples/src/ExtensionBlocks
    ```
 
@@ -320,18 +320,10 @@ The application demonstrates all extension block features with comprehensive out
 
 - [C# 14 Extension Blocks Proposal](https://github.com/dotnet/csharplang/issues/5497)
 - [C# 14 Documentation](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-14)
-- [Extension Methods](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)
+- [Extension Members](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)
 - [Operator Overloading](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/operator-overloading)
 - [.NET 10 Release Notes](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-10)
-
-## 🤝 Contributing
-
-This sample is part of the .NET 10 samples collection. Feel free to submit issues and enhancement requests!
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](../../LICENSE) file for details.
-
----
-
-**Note**: This sample demonstrates the C# 14 extension members concept using traditional extension methods and operator overloading that work in current C# versions. The actual C# 14 syntax will be available when .NET 10 is released.

@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:5000
+
+### Welcome message
+GET {{baseUrl}}/
+
+### Get all books
+GET {{baseUrl}}/books
+
+### Get book by ID (existing)
+GET {{baseUrl}}/books/1
+
+### Get book by ID (not found)
+GET {{baseUrl}}/books/99
+
+### Add a new book
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "id": 4,
+  "title": "Pragmatic Microservices with C# and Azure",
+  "author": "Christian Nagel",
+  "price": 39.05
+}
+
+### Add duplicate book (409 Conflict)
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "C# in Depth",
+  "author": "Jon Skeet",
+  "price": 49.99
+}
+
+### Delete a book
+DELETE {{baseUrl}}/books/1
+
+### Delete non-existing book (404 Not Found)
+DELETE {{baseUrl}}/books/99
