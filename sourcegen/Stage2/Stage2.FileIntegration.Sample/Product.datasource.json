@@ -1,0 +1,30 @@
+{
+  "entityType": "Product",
+  "defaultCount": 6,
+  "templates": {
+    "Name": [
+      "Wireless Headphones",
+      "Gaming Laptop",
+      "Smartphone",
+      "4K Monitor",
+      "Mechanical Keyboard",
+      "Fitness Tracker",
+      "Electric Scooter",
+      "Smart Watch",
+      "Bluetooth Speaker",
+      "Tablet Computer"
+    ],
+    "Description": [
+      "High-quality audio device with noise cancellation",
+      "Powerful gaming machine with RGB lighting",
+      "Latest technology mobile device",
+      "Ultra-high definition display for professionals",
+      "Tactile switches for enhanced typing experience",
+      "Monitor your health and fitness goals",
+      "Eco-friendly urban transportation",
+      "Smart device for your wrist",
+      "Portable audio for any occasion",
+      "Lightweight computing on the go"
+    ]
+  }
+}

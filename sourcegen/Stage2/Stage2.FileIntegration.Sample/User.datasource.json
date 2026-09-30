@@ -1,0 +1,30 @@
+{
+  "entityType": "User",
+  "defaultCount": 7,
+  "templates": {
+    "Name": [
+      "Alice Johnson",
+      "Bob Smith",
+      "Carol Williams",
+      "David Brown",
+      "Emma Davis",
+      "Frank Miller",
+      "Grace Wilson",
+      "Henry Moore",
+      "Ivy Taylor",
+      "Jack Anderson"
+    ],
+    "Email": [
+      "alice@example.com",
+      "bob@company.org",
+      "carol@business.net",
+      "david@enterprise.com",
+      "emma@startup.io",
+      "frank@corporation.com",
+      "grace@services.org",
+      "henry@solutions.net",
+      "ivy@consulting.com",
+      "jack@ventures.io"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Stage2/Stage2.FileIntegration.Sample/Stage2.FileIntegration.Sample.csproj" />
+  <Project Path="Stage2/Stage2.FileIntegration.Tests/Stage2.FileIntegration.Tests.csproj" />
+  <Project Path="Stage2/Stage2.FileIntegration/Stage2.FileIntegration.csproj" />
+</Solution>
