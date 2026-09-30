@@ -1,0 +1,18 @@
+<Project>
+  <!--
+    Verify requires one fee-status declaration for builds that reference Verify packages.
+    Copy this file to Directory.Build.props at the repository root and choose one option.
+    See: https://github.com/VerifyTests/Verify/blob/main/docs/maintenance-fee.md
+  -->
+  <PropertyGroup>
+    <!-- Option A: Sponsoring account -->
+    <!-- <Verify_GitHubSponsorAccount>your-github-account</Verify_GitHubSponsorAccount> -->
+
+    <!-- Option B: Time-bounded exemption claim (up to 12 months) -->
+     <Verify_SponsorshipExemption>OpenSource</Verify_SponsorshipExemption> 
+     <Verify_SponsorshipExemptionUntil>2027-09</Verify_SponsorshipExemptionUntil> 
+
+    <!-- Option C: Private licensing arrangement -->
+    <!-- <Verify_SponsorshipLicensedUntil>yyyy-MM</Verify_SponsorshipLicensedUntil> -->
+  </PropertyGroup>
+</Project>

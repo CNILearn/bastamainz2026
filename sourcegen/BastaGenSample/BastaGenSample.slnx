@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BastaGenSample/BastaGenSample.csproj" />
+  <Project Path="BastaGenSample.Tests/BastaGenSample.Tests.csproj" />
+  <Project Path="BastaGenSample.SnapshotTests/BastaGenSample.SnapshotTests.csproj" />
+  <Project Path="ClientApp/ClientApp.csproj" Id="5f6dec5e-edd5-4a47-91ab-1bfdb36ccc46" />
+</Solution>
