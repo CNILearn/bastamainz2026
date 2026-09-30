@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="WeakEventSourceGenerator/WeakEventSourceGenerator/WeakEventSourceGenerator.csproj" />
+  <Project Path="WeakEventSourceGenerator/WeakEventSourceGenerator.Sample/WeakEventSourceGenerator.Sample.csproj" />
+  <Project Path="WeakEventSourceGenerator/WeakEventSourceGenerator.Tests/WeakEventSourceGenerator.Tests.csproj" />
+  <Project Path="WeakEventSourceGenerator/WeakEventSourceGenerator.Benchmarks/WeakEventSourceGenerator.Benchmarks.csproj" />
+</Solution>
