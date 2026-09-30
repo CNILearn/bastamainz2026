@@ -14,6 +14,11 @@ C# 14 ist eingeführt, C# 15 steht kurz vor dem Release. Diese Session liefe
 
 ### Code Samples
 
+- [File-based apps with minimal Apis](csharp/01-MinimalApiFileBasedApp/)
+- [Extension members](csharp/02-ExtensionMembers/)
+- [Collection expression args](csharp/03-CollectionExpressionArgs/)
+- [Unions](csharp/Unions/)
+
 ## Using Aspire to publish to Azure and AWS
 
 Dienstag, 29. September 2026: 9:00 - 10:00, Gutenbergsaal 2+3
