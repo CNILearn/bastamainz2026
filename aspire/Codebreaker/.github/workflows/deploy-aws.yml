@@ -1,0 +1,68 @@
+name: Deploy to AWS
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Type true to run deployment"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    if: ${{ inputs.deploy == true }}
+    runs-on: ubuntu-latest
+    environment:
+      name: AWS
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_NOLOGO: true
+      CodebreakerSettings__DataStore: Postgres
+      CodebreakerSettings__DeploymentTarget: AwsEcsFargate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install AWS CDK
+        run: npm install -g aws-cdk
+
+      - name: Install Aspire CLI
+        run: curl -sSL https://aspire.dev/install.sh | bash
+
+      - name: Add Aspire CLI to PATH
+        run: echo "$HOME/.aspire/bin" >> "$GITHUB_PATH"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Restore and build
+        run: |
+          dotnet restore Codebreaker.slnx
+          dotnet build Codebreaker.slnx --no-restore
+
+      - name: Preview deployment steps
+        run: |
+          aspire ls
+          aspire deploy --apphost ./Codebreaker.AppHost/Codebreaker.AppHost.csproj --environment AWS --list-steps --non-interactive
+
+      - name: Deploy with Aspire
+        run: aspire deploy --apphost ./Codebreaker.AppHost/Codebreaker.AppHost.csproj --environment AWS --non-interactive
