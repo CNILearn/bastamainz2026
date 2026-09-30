@@ -39,9 +39,16 @@ You can use the **dotnet new template** to create a new source generator project
 ```bash
 dotnet new install CNinnovation.Templates.SourceGenerator
 
-dotnet new sourcegen -n MySourceGenerator
+dotnet new cni-sourcegen -n MySourceGenerator
 ```
 
 Check the documentation at: https://www.nuget.org/packages/CNinnovation.Templates.SourceGenerator
 
 ### Code Samples
+
+- Source generator created with the cni-sourcegen tool (BastaGenSample)
+- Source generator with sample data (Stage1)
+- Source generator with external files (Stage2)
+- Source generator with partial events (WeakEventSourceGenerator)
+- Source generator with interceptors (ActivitySourceGenerator)
+- Source generator with unsafe accessors (UnsafeAccessorGenerator)
