@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Stage1/Stage1.Basic.Sample/Stage1.Basic.Sample.csproj" />
+  <Project Path="Stage1/Stage1.Basic.Tests/Stage1.Basic.Tests.csproj" />
+  <Project Path="Stage1/Stage1.Basic/Stage1.Basic.csproj" />
+</Solution>
