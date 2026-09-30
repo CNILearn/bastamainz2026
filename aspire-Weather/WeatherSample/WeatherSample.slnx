@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="WeatherSample.ApiService/WeatherSample.ApiService.csproj" />
+  <Project Path="WeatherSample.AppHost/WeatherSample.AppHost.csproj" />
+  <Project Path="WeatherSample.ServiceDefaults/WeatherSample.ServiceDefaults.csproj" />
+  <Project Path="WeatherSample.Web/WeatherSample.Web.csproj" />
+</Solution>
